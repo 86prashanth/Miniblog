@@ -1,0 +1,39 @@
+{% extends 'app/base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% block content %}
+    <div class="col-md-5">
+    <h3 class="text-white my-5">Signup Page</h3>
+    {% if messages %}
+    {% for message in messages %}
+    <p{% if message.tags %} class="text-primary {{message.tags}} mb-5" {% endif %}>{{message}}</p>
+    {% endfor %}
+    {%endif%}
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+        <div class="form-group">
+        {{fm.label_tag}}
+        {{fm}}
+        <small class="text-warning">{{fm.errors|striptags}}</small>
+        </div>
+        {% endfor %} <br>
+        <input type="submit" class="btn btn-primary" value="submit" >
+        {% if form.non_field_errors %}
+        {% for error in form.non_field_errors %}
+        <p class="alert alert-danger my-3">{{error}}</p>
+        {%endfor%}
+        {%endif%}
+    </form>
+  </div>
+    {% endblock content %}
+</body>
+</html>

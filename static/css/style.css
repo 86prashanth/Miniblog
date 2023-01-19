@@ -1,0 +1,15 @@
+body{
+    background-image: url('/static/images/bg2.jpg');
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:antiquewhite;
+}
+.jumbo-color{
+    background-color:transparent;
+    color:aqua;
+}
+
+.form-control{
+    background-color: transparent;
+}
